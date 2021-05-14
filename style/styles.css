@@ -1,0 +1,84 @@
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1, h2, h3{
+  display:flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content:center;
+}
+h2 {
+  background-color:rgb(55, 59, 62);
+  color: white;
+}
+
+h3 {
+  text-shadow: rgb(55, 59, 62);
+  font-size:medium;
+}
+.resultadodatos {
+  text-align: center;
+}
+.escudo{
+  width: 50px;
+}
+.body {
+  background-color: rgb(55, 59, 62);
+}
+.bg-gr {
+  background-color: rgb(255, 255, 255);
+}
+
+.btn {
+  border-color: rgb(55, 59, 62);
+  color:rgb(55, 59, 62);
+}
+.resultadotext {
+  text-align: center;
+}
+.casatext {
+  text-align: end;
+}
+.titulo_casa{
+  text-align: end;
+}
+
+
+.logo_liga {
+  width: 50px;
+}
+.back_bol {
+  background-image: url(/img/maxresdefault.jpg);
+}
+
+/* cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.card {
+  flex: 0 0 200px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+} 
+.card img {
+  max-width: 100%;
+}
+.card .text {
+  padding: 0 20px 20px;
+}
+.card .text > button {
+  background: gray;
+  border: 0;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  }
