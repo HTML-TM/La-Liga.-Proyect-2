@@ -28,7 +28,10 @@ function tablaequipos (equipos) {
         phone.textContent = equipos[h].phone;
         filas.appendChild(phone)
 
-    
+        var address = document.createElement("td")
+        address.textContent = equipos[h].address;
+        filas.appendChild(address)
+
 
         tbody.appendChild(filas);
     }
