@@ -1,5 +1,5 @@
 function tablaclasificacion(clasificacion) {
-    console.log(clasificacion)
+    
 
        //Hago variable del elemento table y tbody
     
