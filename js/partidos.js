@@ -1,4 +1,4 @@
-
+function partidos (partidos) {
 var tbody = document.getElementById("tablebody")
 
 
@@ -25,7 +25,7 @@ var tbody = document.getElementById("tablebody")
         
         var resultado = document.createElement("td");
         if(matches.matches[g].score.fullTime.homeTeam == null ){
-            resultado.textContent = "Prox."
+            resultado.textContent = "Próx."
         }
         else {
             resultado.textContent = matches.matches[g].score.fullTime.homeTeam + " - " + matches.matches[g].score.fullTime.awayTeam;
@@ -48,4 +48,4 @@ var tbody = document.getElementById("tablebody")
     tbody.append(fila);
 
     } 
-
+}
