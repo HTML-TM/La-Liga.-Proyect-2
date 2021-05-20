@@ -35,6 +35,7 @@
           </div>
         </div>
       </nav>
+    <form>
       <div class="parent_input">
             <div class="child_input">
                 <label for="fname">Equipo:</label>
@@ -57,25 +58,41 @@
                 <input type="radio" id="proximos" name="input_2">
             </div>
             <div class="child_input">
-                <button type="button" class="btn btn-light">Actualizar!</button>
+                <button type="reset" class="btn btn-light">Actualizar!</button>
             </div>
             
       </div>
+    </form>
       <h2>Estadisticas</h2>
       <h3 class="bg-gr">La Liga</h3>
-    <main class="back_bol">    
-        <div>
-            <table class="table table-dark table-striped">
+    <main>    
+        <div class="parent_table">
+            <table class="table table-dark table-striped" class="child_table">
                 <thead>
                     <tr id='tr' class="table-dark">
-                        <th>Numero</th>
-                        
+                        <th>Equipo</th>
+                        <th>Goles</th>
+                        <th>Partidos</th>
+                        <th>Media</th>
                     </tr>
                 </thead>
                 <tbody id=tablebody3>
   
                 </tbody>
             </table>
+            <table class="table table-dark table-striped" class="child_table">
+              <thead>
+                  <tr id='tr1' class="table-dark">
+                      <th>Equipo Visitante</th>
+                      <th>Goles</th>
+                      <th>Partidos</th>
+                      <th>menos goles</th>
+                  </tr>
+              </thead>
+              <tbody id=tablebody4>
+
+              </tbody>
+          </table>
         </div>
         </div>
     </main>

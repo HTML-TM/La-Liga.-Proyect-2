@@ -1,7 +1,6 @@
 function partidos (partidos) {
+
 var tbody = document.getElementById("tablebody")
-
-
 
     for (var g = 0; g < matches.matches.length; g++) {
     var fila = document.createElement("tr");

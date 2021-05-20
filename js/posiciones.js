@@ -69,4 +69,4 @@ function tablaclasificacion(clasificacion) {
  tablaclasificacion(standing.standings[0].table)
  
 
-    console.log(standing.standings[0])
+    console.log(standing.standings[0].table)
