@@ -9,12 +9,33 @@ function estadisticasFetch() {
     }).then(response => {
         if(response.ok) return response.json();
     }).then(data => {
+      const matchess = data.matches;
+      
+      let ganados = matchess.filter(match => match.score.fullTime.homeTeam > match.score.fullTime.awayTeam);
+      let empatados = matchess.filter(match => match.score.fullTime.homeTeam == match.score.fullTime.awayTeam);
+      let perdidos = matchess.filter(match => match.score.fullTime.homeTeam < match.score.fullTime.awayTeam);
+      let proximos = matchess.filter(match => match.status !== "FINISHED" );
+      
+
+
       let loader = document.getElementById("loader");
         loader.style.display = "none";
         crearEstadisticas(data.matches);
         crearEstadisticas2(data.matches);
+        
     })
 }
+
+// let ganados = data.filter( (onclick.selector) {
+//   ganados = equipo.selector > equipo.encontra
+// } else {
+//   alert("no disponible")
+// }
+// )
+
+// hacer un switch case {} break; case {} break;
+// document.getElementById("selector").addEventListener("click", myFunction);
+
 let equipo_search = document.getElementById(selector);
 console.log(selector)
 

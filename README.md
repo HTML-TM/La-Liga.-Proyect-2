@@ -13,7 +13,7 @@ Visit Link - https://cocky-hawking-2a0083.netlify.app/
 
 ## How to use it?
 
-1. (If don't have it) Download Visual Studio Code
+1. (If don't have it) Download  Visual Studio Code
 2. Download as a Zip
 3. Open the index.html inside your favorite browser with VSC.
 

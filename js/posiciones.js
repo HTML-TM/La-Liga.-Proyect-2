@@ -1,6 +1,6 @@
 partidosFetch()
 function partidosFetch() {
-    const url = "https://api.football-data.org/v2/competitions/2014/matches"
+    const url = "https://api.football-data.org/v2/competitions/2014/standings"
     fetch(url,{
         method : "GET",
         headers:{
@@ -9,8 +9,7 @@ function partidosFetch() {
     }).then(response => {
         if(response.ok) return response.json();
     }).then(data => {
-        console.log(data.matches);
-        tablaclasificacion(data.matches)
+        tablaclasificacion(data.standings)
     })
 }
 
