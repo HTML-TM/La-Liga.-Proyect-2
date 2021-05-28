@@ -35,23 +35,30 @@
           </div>
         </div>
       </nav>
+      
     <form>
       <div class="parent_input">
             <div class="child_input">
                 <label for="fname">Equipo:</label>
-                <input type="text" id="equipo" name="input_1" required>
+                <select name="selector" id="selector">
+                  <option value="select">Selecciona un club...</option>
+                  <option value="athletic">Athletic Club</option>
+                  <option value="athleticMadrid">Club Atlético de Madrid</option>
+                  <option value="cadiz">Cádiz CF</option>
+                  <option value="caosasuna">CA Osasuna</option>
+                </select>
             </div>
             <div class="child_input">
-                <label for="fname">Ganado:</label>
-                <input type="radio" id="ganado" name="input_2">
+                <label for="fname">Ganados:</label>
+                <input type="radio" id="ganados" name="input_2">
             </div>
             <div class="child_input">
-                <label for="fname">Perdido:</label>
-                <input type="radio" id="perdido" name="input_2">
+                <label for="fname">Perdidos:</label>
+                <input type="radio" id="perdidos" name="input_2">
             </div>
             <div class="child_input">
-                <label for="fname">Empatado:</label>
-                <input type="radio" id="empatado" name="input_2">
+                <label for="fname">Empatados:</label>
+                <input type="radio" id="empatados" name="input_2">
             </div>
             <div class="child_input">
                 <label for="fname">Próximos:</label>
@@ -63,8 +70,14 @@
             
       </div>
     </form>
+    <div>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border m-5" role="status" id="loader">
+      </div>
+    </div>
       <h2>Estadisticas</h2>
       <h3 class="bg-gr">La Liga</h3>
+      
     <main>    
         <div class="parent_table">
             <table class="table table-dark table-striped" class="child_table">
@@ -84,9 +97,8 @@
               <thead>
                   <tr id='tr1' class="table-dark">
                       <th>Equipo Visitante</th>
-                      <th>Goles</th>
                       <th>Partidos</th>
-                      <th>menos goles</th>
+                      <th>GC visitante</th>
                   </tr>
               </thead>
               <tbody id=tablebody4>

@@ -1,13 +1,24 @@
+partidosFetch()
+function partidosFetch() {
+    const url = "https://api.football-data.org/v2/competitions/2014/matches"
+    fetch(url,{
+        method : "GET",
+        headers:{
+            "X-Auth-Token" : "6aacce9863cb44628022e0835d68f993"
+        }
+    }).then(response => {
+        if(response.ok) return response.json();
+    }).then(data => {
+        console.log(data.matches);
+        tablaclasificacion(data.matches)
+    })
+}
+
 function tablaclasificacion(clasificacion) {
     
-
-       //Hago variable del elemento table y tbody
     
        var tbody = document.getElementById("tablebody")
-
-    
-       //Aqui están las variables en las filas (tr), introduzco los datos de matches en la variable especificamente creada, y por ultimo asigno a fila como pariente de la variable.
-       
+        console.log(clasificacion);
        
        for (var g = 0; g < clasificacion.length; g++) {
            var fila = document.createElement("tr");
@@ -66,7 +77,3 @@ function tablaclasificacion(clasificacion) {
            } 
        
 }
- tablaclasificacion(standing.standings[0].table)
- 
-
-    console.log(standing.standings[0].table)
