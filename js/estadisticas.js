@@ -13,8 +13,6 @@ function estadisticasFetch() {
         loader.style.display = "none";
         crearEstadisticas(data.matches);
         crearEstadisticas2(data.matches);
-        
-        
     })
 }
 let equipo_search = document.getElementById(selector);
