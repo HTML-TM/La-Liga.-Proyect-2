@@ -7,9 +7,12 @@ function partidosFetch() {
             "X-Auth-Token" : "6aacce9863cb44628022e0835d68f993"
         }
     }).then(response => {
-        if(response.ok) return response.json();
+        if(response.ok) 
+        return response.json();
     }).then(data => {
-        tablaclasificacion(data.standings)
+        let loader = document.getElementById("loader");
+        loader.style.display = "none";
+        tablaclasificacion(data.standings[0].table)
     })
 }
 
@@ -76,3 +79,7 @@ function tablaclasificacion(clasificacion) {
            } 
        
 }
+
+
+
+

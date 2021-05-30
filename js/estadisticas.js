@@ -1,29 +1,28 @@
-estadisticasFetch()
+estadisticasFetch();
 function estadisticasFetch() {
-    const url = "https://api.football-data.org/v2/competitions/2014/matches"
-    fetch(url,{
-        method : "GET",
-        headers:{
-            "X-Auth-Token" : "6aacce9863cb44628022e0835d68f993"
-        }
-    }).then(response => {
-        if(response.ok) return response.json();
-    }).then(data => {
+  const url = "https://api.football-data.org/v2/competitions/2014/matches";
+  fetch(url, {
+    method: "GET",
+    headers: {
+      "X-Auth-Token": "6aacce9863cb44628022e0835d68f993",
+    },
+  })
+    .then((response) => {
+      if (response.ok) return response.json();
+    })
+    .then((data) => {
       const matchess = data.matches;
       
-      let ganados = matchess.filter(match => match.score.fullTime.homeTeam > match.score.fullTime.awayTeam);
-      let empatados = matchess.filter(match => match.score.fullTime.homeTeam == match.score.fullTime.awayTeam);
-      let perdidos = matchess.filter(match => match.score.fullTime.homeTeam < match.score.fullTime.awayTeam);
-      let proximos = matchess.filter(match => match.status !== "FINISHED" );
-      
-
+      let ganados = matchess.filter((match) => match.score.fullTime.homeTeam > match.score.fullTime.awayTeam);
+      let empatados = matchess.filter((match) => match.score.fullTime.homeTeam == match.score.fullTime.awayTeam);
+      let perdidos = matchess.filter((match) => match.score.fullTime.homeTeam < match.score.fullTime.awayTeam);
+      let proximos = matchess.filter((match) => match.status !== "FINISHED");
 
       let loader = document.getElementById("loader");
-        loader.style.display = "none";
-        crearEstadisticas(data.matches);
-        crearEstadisticas2(data.matches);
-        
-    })
+      loader.style.display = "none";
+      crearEstadisticas(data.matches);
+      crearEstadisticas2(data.matches);
+    });
 }
 
 // let ganados = data.filter( (onclick.selector) {
@@ -33,14 +32,10 @@ function estadisticasFetch() {
 // }
 // )
 
-// hacer un switch case {} break; case {} break;
 // document.getElementById("selector").addEventListener("click", myFunction);
 
-let equipo_search = document.getElementById(selector);
-console.log(selector)
-
 function crearEstadisticas(matches) {
-  var estadisticas = []; 
+  var estadisticas = [];
 
   for (var i = 0; i < matches.length; i++) {
     if (matches[i].status != "FINISHED") {
@@ -101,7 +96,6 @@ function crearEstadisticas(matches) {
 
 function nuevatabla(estadisticas) {
   var tbody = document.getElementById("tablebody3");
-  
 
   estadisticas.sort((a, b) => b.avg - a.avg);
   for (var h = 0; h < 5; h++) {
@@ -162,7 +156,6 @@ function crearEstadisticas2(matches) {
 
   nuevatabla2(estadisticas2);
 }
-
 
 function nuevatabla2(estadisticas2) {
   var tbody = document.getElementById("tablebody4");

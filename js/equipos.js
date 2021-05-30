@@ -1,5 +1,4 @@
 function tablaequipos (equipos) {
-    console.log(equipos)
     
     var tbody = document.getElementById("tablebody2")
 
@@ -39,6 +38,3 @@ function tablaequipos (equipos) {
        
 }
 tablaequipos(teams.teams)
- 
-
-console.log(equipos)
