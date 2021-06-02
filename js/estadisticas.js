@@ -13,10 +13,6 @@ function estadisticasFetch() {
     .then((data) => {
       const matchess = data.matches;
       
-      let ganados = matchess.filter((match) => match.score.fullTime.homeTeam > match.score.fullTime.awayTeam);
-      let empatados = matchess.filter((match) => match.score.fullTime.homeTeam == match.score.fullTime.awayTeam);
-      let perdidos = matchess.filter((match) => match.score.fullTime.homeTeam < match.score.fullTime.awayTeam);
-      let proximos = matchess.filter((match) => match.status !== "FINISHED");
 
       let loader = document.getElementById("loader");
       loader.style.display = "none";
@@ -25,73 +21,52 @@ function estadisticasFetch() {
     });
 }
 
-// let ganados = data.filter( (onclick.selector) {
-//   ganados = equipo.selector > equipo.encontra
-// } else {
-//   alert("no disponible")
-// }
-// )
 
-// document.getElementById("selector").addEventListener("click", myFunction);
 
 function crearEstadisticas(matches) {
-  var estadisticas = [];
+  var statistics = [];
 
-  for (var i = 0; i < matches.length; i++) {
-    if (matches[i].status != "FINISHED") {
-      continue;
+  matches.forEach(match => {
+    if (match.status !== "FINISHED") return;
+
+    let homeFound = statistics.find(team => team.id == match.homeTeam.id);
+
+    if (!homeFound) {
+        statistics.push({
+            id: match.homeTeam.id,
+            name: match.homeTeam.name,
+            goals: match.score.fullTime.homeTeam,
+            matches: 1
+        });
+    }
+    else {
+        homeFound.goals += match.score.fullTime.homeTeam,
+            homeFound.matches++;
     }
 
-    var id_homeTeam = matches[i].homeTeam.id;
-    var name_homeTeam = matches[i].homeTeam.name;
-    var goals_homeTeam = matches[i].score.fullTime.homeTeam;
-    var foundHomeTeam;
+    let awayFound = statistics.find(team => team.id == match.awayTeam.id);
 
-    var id_awayTeam = matches[i].awayTeam.id;
-    var name_awayTeam = matches[i].awayTeam.name;
-    var goals_awayTeam = matches[i].score.fullTime.awayTeam;
-    var foundAwayTeam;
-
-    for (var b = 0; b < estadisticas.length; b++) {
-      if (id_homeTeam == estadisticas[b].id) {
-        foundHomeTeam = estadisticas[b];
-      }
-      if (id_awayTeam == estadisticas[b].id) {
-        foundAwayTeam = estadisticas[b];
-      }
+    if (!awayFound) {
+        statistics.push({
+            id: match.awayTeam.id,
+            name: match.awayTeam.name,
+            goals: match.score.fullTime.awayTeam,
+            matches: 1
+        });
+    }
+    else {
+        awayFound.goals += match.score.fullTime.awayTeam,
+            awayFound.matches++;
     }
 
-    if (foundHomeTeam == undefined) {
-      let objeto = {
-        id: id_homeTeam,
-        name: name_homeTeam,
-        goals: goals_homeTeam,
-        matches: 1,
-      };
-      estadisticas.push(objeto);
-    } else {
-      foundHomeTeam.goals += goals_homeTeam;
-      foundHomeTeam.matches++;
-    }
+});
 
-    if (foundAwayTeam == undefined) {
-      let objeto2 = {
-        id: id_awayTeam,
-        name: name_awayTeam,
-        goals: goals_awayTeam,
-        matches: 1,
-      };
-      estadisticas.push(objeto2);
-    } else {
-      foundAwayTeam.goals += goals_awayTeam;
-      foundAwayTeam.matches++;
-    }
-    for (let c = 0; c < estadisticas.length; c++) {
-      estadisticas[c].avg = estadisticas[c].goals / estadisticas[c].matches;
-    }
-  }
+statistics.forEach(team => {
+    team.avg = (team.goals / team.matches);
+});
 
-  nuevatabla(estadisticas);
+console.log(statistics);
+  nuevatabla(statistics);
 }
 
 function nuevatabla(estadisticas) {
@@ -127,15 +102,16 @@ function crearEstadisticas2(matches) {
   for (var h = 0; h < matches.length; h++) {
     if (matches[h].status != "FINISHED") {
       continue;
-    }
+    } 
     var id_awayTeam = matches[h].awayTeam.id;
     var name_awayTeam = matches[h].awayTeam.name;
     var goals_homeTeam = matches[h].score.fullTime.homeTeam;
 
     var foundAwayTeam;
-
+    
+   
     for (var y = 0; y < estadisticas2.length; y++) {
-      if (id_awayTeam == estadisticas2[y].id) {
+      if (name_awayTeam == estadisticas2[y].name) {
         foundAwayTeam = estadisticas2[y];
       }
     }
@@ -153,7 +129,7 @@ function crearEstadisticas2(matches) {
       foundAwayTeam.matches++;
     }
   }
-
+  console.log(estadisticas2)
   nuevatabla2(estadisticas2);
 }
 
@@ -180,3 +156,12 @@ function nuevatabla2(estadisticas2) {
     tbody.appendChild(fila2);
   }
 }
+
+
+/* Adding and Deleting Elements */
+
+/* document.replaceChild(new, old)	Replace an HTML element */
+
+/* añadir mi nueva tabla con los datos de Ganados y poner la tabla anterior */
+
+

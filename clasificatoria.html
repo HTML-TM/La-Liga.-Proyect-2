@@ -48,18 +48,18 @@
       <table class="table table-dark table-striped">
           <thead>
               <tr id='tr'>
+                  <th>RANGO</th>
+                  <th></th>
                   <th>CLUB</th>
-                  <th></th>
-                  <th></th>
-                  <th>PJ</th>                    
-                  <th>V</th>
-                  <th>E</th>
-                  <th>D</th>
-                  <th>GF</th>
-                  <th>GC</th>
-                  <th>DG</th>
-                  <th>Pts</th>
-                  <th>Últimos 5</th>
+                  <th data-bs-toggle="tooltip" title="Partidos Jugados">PJ</th>                    
+                  <th data-bs-toggle="tooltip" title="Victorias">V</th>
+                  <th data-bs-toggle="tooltip" title="Empates">E</th>
+                  <th data-bs-toggle="tooltip" title="Derrotas">D</th>
+                  <th data-bs-toggle="tooltip" title="Goles a Favor">GF</th>
+                  <th data-bs-toggle="tooltip" title="Goles en Contra">GC</th>
+                  <th data-bs-toggle="tooltip" title="Diferencia en Goles">DG</th>
+                  <th data-bs-toggle="tooltip" title="Puntos">Pts</th>
+                  <th data-bs-toggle="tooltip" title="Últimos 5 partidos">Últimos 5</th>
               </tr>
           </thead>
           <tbody id=tablebody class=rojo>
@@ -68,8 +68,29 @@
       </table>
   </div>
 </main>
+<div class="parent_legend">
+  <div class="child_legend" id="id_legend_right">
+    <dl>
+      <dt>Clasificación/Descenso
+          <dd>■(1-4)Fase de grupos de la Liga de Campeones de la UEFA</dd>
+          <dd>■(5-6)Fase de grupos de la Europa League </dd>
+          <dd>■(18-20)Descenso/Relegación</dd>
+      </dt>
+    </dl>
+    </div>
+  
+  <div class="child_legend" id="id_legend_right">
+  <dl>
+    <dt>Últimos 5 partidos
+        <dd>✔️ Victoria   </dd>
+        <dd>➖ Empate </dd>
+        <dd>❌ Derrota</dd>
+    </dt>
+  </dl>
+  </div>
 
 
+  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <!-- <script src="js/standings.js"></script> -->
     <script src="js/posiciones.js"></script>

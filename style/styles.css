@@ -156,3 +156,24 @@ tr {
 }
 
 
+.parent_legend {
+  display: flex;
+  align-items: top;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+  
+}
+
+.child_legend {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.li_title {
+  font-weight: bold;
+}
+.list-group-item {
+  color: black;
+}
